@@ -127,11 +127,29 @@
 
     function closeModal() { document.getElementById("imageModal").style.display = "none"; }
 
+    // Reportes de ejemplo: se muestran cuando la API todavía no tiene reportes
+    const DEMO_REPORTS = [
+        { lat: 19.2833, lng: -103.7166, fecha: "2026-11-09 19:03", categoria: "Seguimiento", descripcion: "Persona siguiendo a estudiantes a la salida de la escuela." },
+        { lat: 19.2272, lng: -103.7305, fecha: "2026-11-09 22:31", categoria: "Robo", descripcion: "Robo de celular con amenazas." },
+        { lat: 19.2455, lng: -103.7257, fecha: "2026-11-10 13:10", categoria: "Acoso", descripcion: "Acoso verbal en el centro." },
+        { lat: 19.2641, lng: -103.7425, fecha: "2026-11-10 20:48", categoria: "Acoso", descripcion: "Silbidos y acercamiento insistente en parada de autobús." },
+        { lat: 19.2269, lng: -103.7311, fecha: "2026-11-11 14:22", categoria: "Violencia Física", descripcion: "Agresión física en la vía pública, intervino la policía." },
+        { lat: 19.2461, lng: -103.7238, fecha: "2026-11-11 21:05", categoria: "Seguimiento", descripcion: "Un vehículo siguió a una mujer durante varias cuadras." },
+        { lat: 19.2638, lng: -103.7449, fecha: "2026-11-12 17:15", categoria: "Acoso", descripcion: "Comentarios ofensivos al pasar frente a un grupo de personas." },
+        { lat: 19.2452, lng: -103.7262, fecha: "2026-11-12 18:42", categoria: "Robo", descripcion: "Se observó a un hombre sustrayendo artículos de una tienda." }
+    ];
+
     async function loadReports() {
         try {
-            const res = await fetch(API);
-            const data = await res.json();
-            
+            let data = [];
+            try {
+                const res = await fetch(API);
+                data = await res.json();
+            } catch (err) { console.error(err); }
+
+            const esDemo = !Array.isArray(data) || data.length === 0;
+            if (esDemo) data = DEMO_REPORTS;
+
             // --- PROCESAR ESTADÍSTICAS ---
             const counts = { "Acoso": 0, "Robo": 0, "Violencia Física": 0, "Seguimiento": 0 };
             const zonas = {}; // Agruparemos por "Lat, Lng" aproximado
@@ -150,7 +168,9 @@
             // --- RENDERIZAR REPORTES ---
             const filtro = document.getElementById("filtro").value;
             const container = document.getElementById("container");
-            container.innerHTML = "";
+            container.innerHTML = esDemo
+                ? `<div style="text-align:center; font-size:0.85em; color:#666; margin-bottom:12px;">ℹ️ Mostrando datos de ejemplo. Los reportes enviados desde la app aparecen aquí.</div>`
+                : "";
 
             data
             .filter(r => filtro === "todos" || r.categoria === filtro)

@@ -13,7 +13,7 @@ Panel web de estadísticas y API REST para los reportes de incidentes de violenc
   <img src="screenshots/web-2-reporte.png" width="420" alt="Reporte con foto y descripción">
 </p>
 
-<sub>Capturas con datos de ejemplo.</sub>
+<sub>Si la API no tiene reportes, la página muestra datos de ejemplo para que siempre se pueda ver cómo funciona.</sub>
 
 ## Página web (`index.html`)
 
