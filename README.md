@@ -4,7 +4,7 @@
 
 Panel web de estadísticas y API REST para los reportes de incidentes de violencia de género enviados desde la app Alerta Violeta Colima.
 
-**Sitio en vivo:** https://verduzco2.vercel.app
+**Sitio en vivo:** https://alerta-violeta-web.vercel.app
 
 ## Capturas
 
