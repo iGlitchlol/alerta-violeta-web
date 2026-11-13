@@ -6,6 +6,15 @@ Panel web de estadísticas y API REST para los reportes de incidentes de violenc
 
 **Sitio en vivo:** https://verduzco2.vercel.app
 
+## Capturas
+
+<p align="center">
+  <img src="screenshots/web-1-graficas.png" width="420" alt="Gráficas de tipos de violencia y reportes por zona">
+  <img src="screenshots/web-2-reporte.png" width="420" alt="Reporte con foto y descripción">
+</p>
+
+<sub>Capturas con datos de ejemplo.</sub>
+
 ## Página web (`index.html`)
 
 - Gráfica de barras con los reportes por zona.
