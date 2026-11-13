@@ -1,6 +1,6 @@
 # Alerta Violeta Colima: página web y API
 
-> Este proyecto tiene dos partes: la **página web + API** (este repo) y la **app móvil** en Flutter: [iGlitchlol/alertavioleta](https://github.com/iGlitchlol/alertavioleta).
+> Este proyecto tiene dos partes: la **página web + API** (este repo) y la **app móvil** en Flutter: [alerta-violeta-app](https://github.com/iGlitchlol/alerta-violeta-app).
 
 Panel web de estadísticas y API REST para los reportes de incidentes de violencia de género enviados desde la app Alerta Violeta Colima.
 
